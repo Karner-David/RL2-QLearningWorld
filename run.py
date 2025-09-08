@@ -31,7 +31,7 @@ def train(env, agent, episodes):
             if (i + 1) % 50 == 0:
                 agent.epsilon = agent.epsilon * 0.99
         if (i + 1) % 100 == 0:
-            print(f"Episode {i+1}/{episodes}, Reward: {total_reward:.2f}, Epsilon: {agent.epsilon:.3f}")
+            print(f"Episode {i+1}/{episodes}, Reward: {total_reward:.2f}")
 
 
     return rewards_list
@@ -48,7 +48,7 @@ def main():
         reward=100
     )
     agent = QLearningAgent(env.get_state_space(), env.get_action_space())
-    rewards = train(env, agent, episodes=5000)
+    rewards = train(env, agent, episodes=100)
 
     # Plot reward curve
     plot_rewards(rewards)
